@@ -7,7 +7,9 @@ const masonrySpan = note => {
   
   if(note.clientHeight < note.scrollHeight){
     const div = Math.ceil(note.scrollHeight / note.clientHeight);
-    note.classList.add(`row-span-${div}`);
+    console.log(div);
+    // note.classList.add(`row-span-${div}`);
+    note.style.gridRow = `span ${div}`;   // Adding class row-span-(higher than 4) doesn't work
   }
 }
 
@@ -42,9 +44,7 @@ addForm.addEventListener('submit', e => {
 });
 
 notesList.addEventListener('click', e => {
-  console.log(e.target);
   if(e.target.classList.contains('delete')){
-    console.log(e.target);
     e.target.parentElement.remove();
   }
 });
